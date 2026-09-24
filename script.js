@@ -95,6 +95,7 @@ async function loadGoods() {
         tag: tagIndex >= 0 ? record[tagIndex] : "",
       }))
       .filter((item) => item.name && item.image && item.detail);
+    if (items.length < 4) throw new Error("goods.csv did not provide all badge designs");
     renderGoods(items);
   } catch (error) {
     renderGoods([
@@ -102,6 +103,24 @@ async function loadGoods() {
         name: "SULAWESI",
         image: "assets/badge-sulawesi.png",
         detail: "土地の自然と、そこに生きてきた人びとの記憶を象徴するメインデザイン。",
+        tag: "缶バッジ",
+      },
+      {
+        name: "Onde-Onde",
+        image: "assets/badge-onde.png",
+        detail: "チンダさんが得意としていた伝統菓子をモチーフにしたデザイン。",
+        tag: "缶バッジ",
+      },
+      {
+        name: "#Bersamamu",
+        image: "assets/badge-bersamamu.png",
+        detail: "性暴力のない世界に向けて、一緒に歩む思いを込めたデザイン。",
+        tag: "缶バッジ",
+      },
+      {
+        name: "#MulaiBicara",
+        image: "assets/badge-mulai-bicara.png",
+        detail: "「話し始めよう」という意味。歴史やサバイバー、社会について語り合うためのデザイン。",
         tag: "缶バッジ",
       },
     ]);
