@@ -357,7 +357,70 @@ h3 {
 }
 
 .intro {
-  padding: 64px 0 90px;
+  padding: 64px 0 30px;
+}
+
+.report {
+  padding: 26px 0 70px;
+}
+
+.report-panel {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(28px, 5vw, 70px);
+  padding: clamp(28px, 5vw, 58px);
+  border: 1px solid rgba(216, 75, 48, 0.18);
+  border-radius: 32px;
+  background: rgba(255, 250, 240, 0.84);
+  box-shadow: var(--shadow);
+}
+
+.report-panel .section-heading {
+  margin-bottom: 0;
+}
+
+.report-panel h2,
+.intro-text h2 {
+  font-size: clamp(27px, 3.5vw, 42px);
+}
+
+.report-panel .section-heading > p:last-child,
+.report-copy p,
+.fund-use span {
+  color: #52635c;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.report-copy p {
+  margin-bottom: 14px;
+}
+
+.fund-use {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.fund-use li {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--sun);
+  border-radius: 0 16px 16px 0;
+  background: rgba(245, 181, 35, 0.1);
+}
+
+.fund-use strong {
+  color: var(--green-deep);
+}
+
+.thanks {
+  margin: 20px 0 0 !important;
+  color: var(--red) !important;
+  font-weight: 800;
 }
 
 .intro-text {
@@ -370,6 +433,12 @@ h3 {
   background:
     linear-gradient(90deg, rgba(255, 250, 240, 0.62), rgba(255, 250, 240, 0.18)),
     radial-gradient(circle at 92% 20%, rgba(145, 213, 219, 0.18), transparent 18rem);
+}
+
+.intro-text .section-heading {
+  max-width: 780px;
+  margin: 0 auto 28px;
+  text-align: center;
 }
 
 .intro-body {
@@ -393,6 +462,14 @@ h3 {
 .goods,
 .support {
   padding: 86px 0;
+}
+
+.goods {
+  padding-top: 26px;
+}
+
+.goods-lead {
+  margin-bottom: 24px;
 }
 
 .section-heading {
@@ -461,6 +538,55 @@ h3 {
   gap: 18px;
 }
 
+.order-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: 32px;
+  align-items: center;
+  margin: 0 0 30px;
+  padding: clamp(26px, 4vw, 44px);
+  border: 1px solid rgba(46, 118, 101, 0.14);
+  border-radius: 30px;
+  background: rgba(255, 250, 240, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.design-heading {
+  margin-top: 58px;
+  margin-bottom: 28px;
+}
+
+.design-heading h3 {
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.order-panel h3 {
+  margin-bottom: 10px;
+  color: var(--green-deep);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.4;
+}
+
+.order-panel h3 span {
+  color: var(--red);
+}
+
+.order-panel p {
+  color: #52635c;
+  line-height: 1.85;
+}
+
+.order-details > p:last-of-type {
+  margin-bottom: 20px;
+}
+
+.order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
 .goods-item {
   position: relative;
   display: flex;
@@ -509,7 +635,7 @@ h3 {
 
 .support-panel {
   display: grid;
-  grid-template-columns: 0.75fr 1.25fr auto;
+  grid-template-columns: 0.75fr 1.25fr;
   gap: 28px;
   align-items: center;
   padding: clamp(28px, 5vw, 56px);
@@ -557,6 +683,19 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
+}
+
+.contact-line {
+  margin-top: 24px !important;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.contact-line a {
+  color: var(--green-deep);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .footer-links a {
@@ -683,13 +822,16 @@ h3 {
 
   .timeline,
   .goods-grid,
+  .report-panel,
+  .order-panel,
   .intro-text,
   .support-panel {
     grid-template-columns: 1fr;
   }
 
-  .intro-text {
-    text-align: center;
+  .report-panel,
+  .order-panel {
+    text-align: left;
   }
 
   .time-item {
@@ -704,9 +846,6 @@ h3 {
     text-align: center;
   }
 
-  .support-panel .button {
-    justify-self: center;
-  }
 }
 
 @media (max-width: 640px) {
@@ -751,6 +890,10 @@ h3 {
     padding: 60px 0;
   }
 
+  .goods {
+    padding-top: 26px;
+  }
+
   .goods-item {
     min-height: 280px;
     border-radius: 24px;
@@ -763,6 +906,15 @@ h3 {
   .footer-links {
     grid-template-columns: 1fr;
     text-align: left;
+  }
+
+  .order-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .order-actions .button {
+    width: 100%;
   }
 }
 
